@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.jachai.walleto_expensemanager.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_transactionDetailsFragment"
+            app:destination="@id/transactionDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_transaction"
+        android:name="com.jachai.walleto_expensemanager.ui.dashboard.DashboardFragment"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_budget"
+        android:name="com.jachai.walleto_expensemanager.ui.notifications.NotificationsFragment"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.jachai.walleto_expensemanager.ui.notifications.NotificationsFragment"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/addTransactionFragment"
+        android:name="com.jachai.walleto_expensemanager.ui.add.AddTransactionFragment"
+        android:label="AddTransactionFragment" />
+
+    <fragment
+        android:id="@+id/transactionDetailsFragment"
+        android:name="com.jachai.walleto_expensemanager.ui.details.TransactionDetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_transaction_details">
+        <argument
+            android:name="transaction"
+            app:argType="com.jachai.walleto_expensemanager.data.model.Transaction" />
+        <action
+            android:id="@+id/action_transactionDetailsFragment_to_editTransactionFragment"
+            app:destination="@id/editTransactionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_transactionDetailsFragment_to_errorDialog"
+            app:destination="@id/errorDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTransactionFragment"
+        android:name="com.jachai.walleto_expensemanager.ui.edit.EditTransactionFragment"
+        android:label="Edit Transaction"
+        tools:layout="@layout/fragment_edit_transaction">
+        <argument
+            android:name="transaction"
+            app:argType="com.jachai.walleto_expensemanager.data.model.Transaction" />
+        <action
+            android:id="@+id/edit_to_details"
+            app:destination="@id/transactionDetailsFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/errorDialog"
+        android:name="com.jachai.walleto_expensemanager.ui.dialog.ErrorDialog"
+        android:label="ErrorDialog"
+        tools:layout="@layout/error_dialog_layout">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="message"
+            app:argType="string" />
+    </dialog>
+</navigation>

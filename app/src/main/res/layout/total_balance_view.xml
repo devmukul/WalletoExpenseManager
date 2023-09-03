@@ -1,0 +1,35 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/total_balance_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="120dip"
+    android:gravity="center_horizontal|center_vertical"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/total_balance_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_semibold"
+        android:gravity="center_horizontal"
+        android:text="@string/text_total_balance"
+        android:textColor="#91919F"
+        android:textSize="14sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline" />
+
+    <TextView
+        android:id="@+id/total_balance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_bold"
+        android:gravity="center_horizontal"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textStyle="bold"
+        android:text="৳ 23,103"
+        android:textSize="40sp"
+        android:textColor="#161719"/>
+
+</LinearLayout>
